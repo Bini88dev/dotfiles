@@ -1,0 +1,11 @@
+Add to .bashrc...
+
+#Auto completion
+source /etc/profile.d/bash_completion.sh
+
+#Powerline Blue Theme
+#source ~/.bashfancy.sh
+
+#Starship
+eval "$(starship init bash)"
+source ~/.bashstarship.sh
