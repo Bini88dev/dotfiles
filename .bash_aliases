@@ -5,9 +5,9 @@ alias installed='sudo apt list --installed'
 alias services='sudo systemctl list-units --all --type=service --no-pager'
 alias allinone='sudo apt update && sudo apt upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y && sudo apt autopurge -y'
 alias aliaslist='sudo nano ~/.bash_aliases'
-#alias repos='grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/'
 alias mywip='curl ifconfig.me'
 alias disks='sudo lsblk'
+# alias repos='grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/'
 # # ex - archive extractor
 # # usage: ex <file>
 ex ()
@@ -54,7 +54,7 @@ gitpush() {
 }
 gitupdate() {
     eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/github
+    ssh-add ~/.ssh/*.key
     ssh -T git@github.com
 }
 alias gp=gitpush
