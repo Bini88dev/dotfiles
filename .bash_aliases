@@ -33,6 +33,10 @@ ex ()
   fi
 }
 
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 alias h='history'
 alias hgrep="fc -El 0 | grep"
 alias help='man'
