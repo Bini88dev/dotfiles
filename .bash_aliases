@@ -120,6 +120,7 @@ alias yadms='yadm status'
 alias yadmls='yadm list -a'
 alias yadme='yadm encrypt'
 alias yadmd='yadm decrypt'
+alias yadmpush="yadm push -u origin"
 
 ## Docker
 alias dockls="docker container ls | awk 'NR > 1 {print \$NF}'"                  # display names of running containers
