@@ -1,4 +1,14 @@
-Add to .bashrc...
+## Dont include in .bashrc...yust some major commands to run after clone or restore...
+# fc-cache -f -v -> clear and regenerate your font cache
+# fc-list -> displaying the paths and style definitions of fonts
+# set all over the FiraCode Nerd Font Mono...windows terminal, linux terminal, terminator, etc...
+# curl -sS https://starship.rs/install.sh | sh -> install it before you clone the dotfiles and add in .bashrc
+# sudo apt install bash-completion -> install it before you clone the dotfiles and add in .bashrc
+
+
+
+
+## Add to .bashrc...
 
 ## Auto completion
 source /etc/profile.d/bash_completion.sh
@@ -11,14 +21,9 @@ eval "$(starship init bash)"
 source ~/.bashstarship.sh
 
 
-## Dont include in .bashrc...yust some major command to run after restore.
-# fc-cache -f -v clear and regenerate your font cache
-# fc-list displaying the paths and style definitions of fonts
 
 
-
-
-## .bashrc baskup...
+## .bashrc backup...
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
