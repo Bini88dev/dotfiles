@@ -74,29 +74,37 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
   alias npm='unalias nvm node npm && . "$NVM_DIR"/nvm.sh && npm'
 fi
 
+# Enable colors and change prompt:
+# autoload -U colors && colors
+# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
 ## Enable color support of ls and also add handy aliases
-# if [ -x /usr/bin/dircolors ]; then
-#     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#     alias ls='ls --color=auto'
-#     #alias dir='dir --color=auto'
-#     #alias vdir='vdir --color=auto'
-# 
-#     alias grep='grep --color=auto'
-#     alias fgrep='fgrep --color=auto'
-#     alias egrep='egrep --color=auto'
-# fi
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# Aliases and functions
+source ~/.bash_aliases
 
 ## Automate it...
 #  zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#  zsh-history-substring-search
-
 #  zsh-syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Aliases and functions
-source ~/.bash_aliases
+#  zsh-completions
+
+
+#  zsh-history-substring-search
+
 
 ## Starship...disable eveything else before enabling this...just one Theme should be active at the time
 # find out which distribution we are running on
@@ -142,7 +150,7 @@ source ~/.bash_aliases
 #eval "$(starship init zsh)"
 
 ## Powerlevel10k
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
