@@ -1,24 +1,35 @@
-## Dont include in .bashrc...yust some major commands to run after clone or restore...
-# fc-cache -f -v -> clear and regenerate your font cache
-# fc-list -> displaying the paths and style definitions of fonts
-# set all over the FiraCode Nerd Font Mono...windows terminal, linux terminal, terminator, etc...
-# curl -sS https://starship.rs/install.sh | sh -> install it before you clone the dotfiles and add in .bashrc
-# sudo apt install bash-completion -> install it before you clone the dotfiles and add in .bashrc
+## Dont include in .bashrc...yust some major TODOs to run BEFORE and AFTER clone...with the time, it will be also automated
+# Run the begindeb.sh post-install script BEFORE anything...
+# Install starship BEFORE you clone the dotfiles and add in .bashrc
+curl -sS https://starship.rs/install.sh | sh
+
+# Clone the dotfiles with
+yadm clone https://github.com/Bini88dev/dotfiles.git
+# If some files are not replased...
+yadm pull
+
+Clear and regenerate your font cache AFTER clone
+fc-cache -f -v
+Displaying the paths and style definitions of fonts AFTER clone
+fc-list
+
+## Set all over the FiraCode Nerd Font Mono...windows terminal, linux terminal, terminator, etc...AFTER clone
 
 
-
-
-## Add to .bashrc...
-
-## Auto completion
+## Add to .bashrc at the end...very importen, just one Theme should be active at the time either Blue Theme or Starship or some other
+# Auto completion
 source /etc/profile.d/bash_completion.sh
 
-## Powerline Blue Theme
+# Powerline Blue Theme
 # source ~/.bashfancy.sh
 
-## Starship
+# Starship
 eval "$(starship init bash)"
 source ~/.bashstarship.sh
+
+
+## Restart bash
+exec $SHELL
 
 
 
