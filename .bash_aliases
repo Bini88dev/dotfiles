@@ -5,9 +5,19 @@ alias restartvm='sudo shutdown -r now'
 alias restart='sudo reboot'
 alias disks='sudo lsblk'
 alias disksstat='df -h -x squashfs -x tmpfs -x devtmpfs'
-alias mem5='ps auxf | sort -nr -k 4 | head -5'
-alias cpu5='ps auxf | sort -nr -k 3 | head -5'
 # alias repos='grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/'
+
+## Get top process eating memory
+alias mem5='ps auxf | sort -nr -k 4 | head -5'
+alias mem10='ps auxf | sort -nr -k 4 | head -10'
+
+## Get top process eating cpu ##
+alias cpu5='ps auxf | sort -nr -k 3 | head -5'
+alias cpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## List largest directories (aka "ducks")
+alias dir5='du -cksh * | sort -hr | head -n 5'
+alias dir10='du -cksh * | sort -hr | head -n 10'
 
 ## Services, network
 alias services='sudo systemctl list-units --all --type=service --no-pager'
@@ -27,6 +37,58 @@ alias upg='sudo apt upgrade'
 alias ac='sudo apt autoclean'
 alias ar='sudo apt autoremove'
 alias ap='sudo apt autopurge'
+
+## Lists, grep, rm, cp, mv
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias hm='cd ~/'
+
+alias h='history'
+alias hgrep="fc -El 0 | grep"
+alias help='man'
+alias p='ps -f'
+alias sortnr='sort -n -r'
+alias unexport='unset'
+
+alias ..='cd ..'
+alias back='cd $OLDPWD'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias na='nano'
+alias vi='vim'
+
+## tmux
+alias tmuxk='tmux kill-session -a'
+alias tmuxa='tmux attach -t'
+alias tmuxl='tmux list-sessions'
+
+## yadm
+alias yadmco='export GPG_TTY=$(tty)'
+alias yadmcom='yadm commit -m'
+alias yadmcl='yadm clone'
+alias yadms='yadm status'
+alias yadmls='yadm list -a'
+alias yadme='yadm encrypt'
+alias yadmd='yadm decrypt'
+alias yadmpush="yadm push -u origin"
+
+## Docker
+alias dockls="docker container ls | awk 'NR > 1 {print \$NF}'"                  # display names of running containers
+alias dockrm='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'   # delete every containers / images
+alias dockstats='docker stats $(docker ps -q)'                                  # stats on images
+alias dockimg='docker images'                                                   # list images installed
+alias dockprune='docker system prune -a'                                        # prune everything
+alias dockco='docker compose up -d'                                             # run compose script
+# alias dockceu='docker compose run --rm -u $(id -u):$(id -g)'                    # run as the host user
+
+
+## Scripts and Functions...
+## Reload shell
+reloadsh () {
+    exec "${SHELL}" "$@"
+}
 
 ## ex - archive extractor
 # usage: ex <file>
@@ -53,29 +115,27 @@ ex ()
   fi
 }
 
-## Lists, grep, rm, cp, mv
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias hm='cd ~/'
+## Compress tar
+compresstar() {
+    local DATE="$(date +%Y%m%d-%H%M%S)"
+    tar cvzf "$DATE.tar.gz" "$@"
+}
 
-alias h='history'
-alias hgrep="fc -El 0 | grep"
-alias help='man'
-alias p='ps -f'
-alias sortnr='sort -n -r'
-alias unexport='unset'
+## Make a directory, then go there
+md() {
+    test -n "$1" || return
+    mkdir -p "$1" && cd "$1"
+}
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias na='nano'
-alias vi='vim'
-
-## tmux
-alias tmuxk='tmux kill-session -a'
-alias tmuxa='tmux attach -t'
-alias tmuxl='tmux list-sessions'
+## "Path" shows current path, one element per line.
+# If an argument is supplied, grep for it.
+path() {
+    test -n "$1" && {
+        echo $PATH | perl -p -e "s/:/\n/g;" | grep -i "$1"
+    } || {
+        echo $PATH | perl -p -e "s/:/\n/g;"
+    }
+}
 
 ## Git
 gitpush() {
@@ -118,21 +178,3 @@ alias gu=gitupdate
 # 
 # alias dif="git diff --no-index"                                                                   # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
 
-## yadm
-alias yadmco='export GPG_TTY=$(tty)'
-alias yadmcom='yadm commit -m'
-alias yadmcl='yadm clone'
-alias yadms='yadm status'
-alias yadmls='yadm list -a'
-alias yadme='yadm encrypt'
-alias yadmd='yadm decrypt'
-alias yadmpush="yadm push -u origin"
-
-## Docker
-alias dockls="docker container ls | awk 'NR > 1 {print \$NF}'"                  # display names of running containers
-alias dockrm='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'   # delete every containers / images
-alias dockstats='docker stats $(docker ps -q)'                                  # stats on images
-alias dockimg='docker images'                                                   # list images installed
-alias dockprune='docker system prune -a'                                        # prune everything
-alias dockco='docker compose up -d'                                             # run compose script
-# alias dockceu='docker compose run --rm -u $(id -u):$(id -g)'                    # run as the host user
