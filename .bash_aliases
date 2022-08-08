@@ -4,12 +4,18 @@ alias cls='clear'
 alias restartvm='sudo shutdown -r now'
 alias restart='sudo reboot'
 alias disks='sudo lsblk'
+alias disksstat='df -h -x squashfs -x tmpfs -x devtmpfs'
+alias mem5='ps auxf | sort -nr -k 4 | head -5'
+alias cpu5='ps auxf | sort -nr -k 3 | head -5'
 # alias repos='grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/'
 
 ## Services, network
 alias services='sudo systemctl list-units --all --type=service --no-pager'
 alias netports='sudo netstat -lntup'
 alias mywip='curl ifconfig.me'
+
+## SSH
+alias ssha='eval $(ssh-agent) && ssh-add'
 
 ## Install, installed, update, upgrade, remove...
 alias installed='sudo apt list --installed'
