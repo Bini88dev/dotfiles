@@ -5,12 +5,12 @@ curl -sS https://starship.rs/install.sh | sh
 
 # Clone the dotfiles with
 yadm clone https://github.com/Bini88dev/dotfiles.git
-# If some files are not replased...
-yadm pull
+# If some files are not replased...and confirmation of raplcing...
+yadm checkout "home/bi"
 
-Clear and regenerate your font cache AFTER clone
+# Clear and regenerate your font cache AFTER clone
 fc-cache -f -v
-Displaying the paths and style definitions of fonts AFTER clone
+# Displaying the paths and style definitions of fonts AFTER clone
 fc-list
 
 ## Set all over the FiraCode Nerd Font Mono...windows terminal, linux terminal, terminator, etc...AFTER clone
