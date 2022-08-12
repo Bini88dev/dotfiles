@@ -1,8 +1,10 @@
 ## System most used commands...
 alias aliaslist='sudo nano ~/.bash_aliases'
 alias cls='clear'
-alias restartvm='sudo shutdown -r now'
+alias restartm='sudo shutdown -r now'
 alias restart='sudo reboot'
+alias reloadbash='exec bash'
+alias reloadzsh='exec zsh'
 alias disks='sudo lsblk'
 alias disksstat='df -h -x squashfs -x tmpfs -x devtmpfs'
 # alias repos='grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/'
@@ -63,6 +65,7 @@ alias vi='vim'
 alias tmuxk='tmux kill-session -a'
 alias tmuxa='tmux attach -t'
 alias tmuxl='tmux list-sessions'
+alias tmuxo='tmux a'
 
 ## yadm
 alias yadmco='export GPG_TTY=$(tty)'
@@ -177,4 +180,3 @@ alias gu=gitupdate
 # alias gj="git-jump"                                                                               # Open in vim quickfix list files of interest (git diff, merged...)
 # 
 # alias dif="git diff --no-index"                                                                   # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
-
