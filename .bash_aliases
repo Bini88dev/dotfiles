@@ -104,10 +104,10 @@ alias na='nano'
 alias vi='vim'
 
 ## tmux
-alias tmuxk='tmux kill-session -a'
-alias tmuxt='tmux attach -t'
-alias tmuxl='tmux list-sessions'
+alias tmuxk='tmux ls | awk 'BEGIN{FS=":"}!/attached/{print $1}' | xargs -n 1 tmux kill-ses -t'
+alias tmuxat='tmux attach -t'
 alias tmuxa='tmux a'
+alias tmuxl='tmux list-sessions'
 
 ## yadm
 alias yadmremo='yadm remote -v'
