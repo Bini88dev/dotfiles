@@ -105,9 +105,9 @@ alias vi='vim'
 
 ## tmux
 alias tmuxk='tmux kill-session -a'
-alias tmuxa='tmux attach -t'
+alias tmuxt='tmux attach -t'
 alias tmuxl='tmux list-sessions'
-alias tmuxo='tmux a'
+alias tmuxa='tmux a'
 
 ## yadm
 alias yadmremo='yadm remote -v'
