@@ -104,7 +104,7 @@ alias na='nano'
 alias vi='vim'
 
 ## tmux
-alias tmuxk='tmux ls | awk 'BEGIN{FS=":"}!/attached/{print $1}' | xargs -n 1 tmux kill-ses -t'
+alias tmuxk='tmux kill-ses -t'
 alias tmuxat='tmux attach -t'
 alias tmuxa='tmux a'
 alias tmuxl='tmux list-sessions'
