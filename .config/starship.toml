@@ -98,7 +98,7 @@ disabled = false
 "infra-cloud-kube-prod-1" = " prod-1"
 "infra-cloud-kube-test-1" = " test-1"
 
-[nix_shell]
-disabled = false
-impure_msg = 'devbox'
-format = 'via [$symbol$state](bold blue) '
+# [nix_shell]
+# disabled = false
+# impure_msg = 'devbox'
+# format = 'via [$symbol$state](bold blue) '
