@@ -26,13 +26,13 @@ alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'
 alias mountedinfo='df -hT'
 
-# Count all files (recursively) in the current folder
+## Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
-# Search files in the current folder
+## Search files in the current folder
 alias f="find . | grep "
 
-# alias chmod commands
+## alias chmod commands
 alias mx='chmod a+x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
@@ -46,7 +46,7 @@ alias netports='sudo netstat -lntup'
 alias mywip='curl ifconfig.me'
 alias openports='netstat -nape --inet'
 
-# Show all logs in /var/log
+## Show all logs in /var/log
 alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
 ## SSH
@@ -143,7 +143,7 @@ reloadsh () {
     exec "${SHELL}" "$@"
 }
 
-# ex - archive extractor
+## ex - archive extractor
 # usage: ex <file>
 ex ()
 {
@@ -174,7 +174,7 @@ compresstar() {
     tar cvzf "$DATE.tar.gz" "$@"
 }
 
-# Copy file with a progress bar
+## Copy file with a progress bar
 cpp() {
     set -e
     strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
@@ -194,7 +194,7 @@ cpp() {
     END { print "" }' total_size="$(stat -c '%s' "${1}")" count=0
 }
 
-# Copy and go to the directory
+## Copy and go to the directory
 cpg() {
 	if [ -d "$2" ]; then
 		cp "$1" "$2" && cd "$2"
@@ -203,7 +203,7 @@ cpg() {
 	fi
 }
 
-# Move and go to the directory
+## Move and go to the directory
 mvg() {
 	if [ -d "$2" ]; then
 		mv "$1" "$2" && cd "$2"
@@ -228,7 +228,7 @@ path() {
     }
 }
 
-# Goes up a specified number of directories  (i.e. up 4)
+## Goes up a specified number of directories  (i.e. up 4)
 up() {
 	local d=""
 	limit=$1
@@ -242,7 +242,7 @@ up() {
 	cd $d
 }
 
-# Automatically do an ls after each cd, z, or zoxide
+## Automatically do an ls after each cd, z, or zoxide
 cd ()
 {
 	if [ -n "$1" ]; then
@@ -252,7 +252,7 @@ cd ()
 	fi
 }
 
-# Git
+## Git
 gitpush() {
     git add .
     git commit -s -m "$*"
