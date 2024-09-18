@@ -103,6 +103,10 @@ alias mv='mv -i'
 alias na='nano'
 alias vi='vim'
 
+##xsel
+alias pbcopy='xsel --input --clipboard'
+alias pbpaste='xsel --output --clipboard'
+
 ## tmux
 alias tmuxk='tmux kill-ses -t'
 alias tmuxat='tmux attach -t'
