@@ -32,7 +32,7 @@ alias countfiles="for t in files links directories; do echo \`find . -type \${t:
 ## Search files in the current folder
 alias f="find . | grep "
 
-## alias chmod commands
+## Chmod commands
 alias mx='chmod a+x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
