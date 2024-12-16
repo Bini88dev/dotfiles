@@ -296,3 +296,70 @@ alias gs='git status'
 # alias gsub="git submodule update --remote"                                                        # pull submodules
 # alias gj="git-jump"                                                                               # Open in vim quickfix list files of interest (git diff, merged...)
 # alias gdif="git diff --no-index"                                                                   # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
+
+## Nvim commands
+alias nvimcomm='echo "\
+Neovim Profile Commands
+===========================
+Esc - Normal mode, save, exit, navigate, etc.
+v - visual mode, to select, copy, paste
+i - insert mode, to edit and insert txt
+SHIFT + . - to activate ":" command line
+:q - quit vim, this fails when changes have been made
+:q!- quit without writing
+:qa! - quit and exit all without saving
+:w - save without exiting
+:wq - write the current file and exit.
+:wq! - write the current file and exit always
+CTRL + s - save file
+CTRL + q - quite file and vim
+Leader - is space " ", in combination with different keys, activate diffrent options
+Leader + e - activate tree
+h - move left
+j - move down
+k - move up
+l - move right
+- - move line upwards, on the first non-blank character
++ - move line downwards, on the first non-blank character
+enter - move line downwards, on the first non-blank character
+Up, Down, Left, Right - resize windows
+CTRL + d - vertical down scroll
+CTRL + u - vertical up scroll
+H - move the cursor to the top of the screen
+M - move the cursor to the middle of the screen
+L - move the cursor to the bottom of the screen
+w - jump by start of words (punctuation considered words)
+W - jump by words (spaces separate words)
+e - jump to end of words (punctuation considered words)
+E - jump to end of words (no punctuation)
+b - jump backward by words (punctuation considered words)
+B - jump backward by words (no punctuation)
+gg - jump to first line of the file
+G - jump to last line of the file
+0 - jump to beginning of line
+$ - jum to end of line
+10j - jump next 10 rows, can be any number
+10k - jump back 10 rows, can be any number
+d - delete line
+x - delete first caracter
+Leader + lw - line wraping
+ALT + j - move text up
+ALT + k - move text down
+y - in visual mode, yank(copy) selected
+yw - in visual mode, yank word
+yy - in visual mode, yank (copy) a line
+2yy - in visual mode, yank 2 lines
+p - in visual mode, paste selected
+> - in visual mode, to move forward selected
+> - in visual mode to move backwards selected
+Leader + v - split vertical
+Leader + h - split horizontal
+Leader + xs - close split
+Leader + se - save dont close split
+CTRL + h, j, k, l - navigate between splits
+Leader + to - open new tab
+Leader + tx - close tab
+Leader + tn - next tab
+Leader + tp - previus tab
+Leader + x - close tab
+==========================="'
