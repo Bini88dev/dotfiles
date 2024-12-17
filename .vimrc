@@ -50,7 +50,6 @@ set statusline+=%l " Current line
 set statusline+=/ " Separator
 set statusline+=%L " Total lines
 
-
 " ========================================
 " Keymaps
 " ========================================
@@ -146,7 +145,6 @@ noremap <leader>Y "+Y
 
 " Open file explorer
 noremap <silent> <leader>e :Lex<CR>
-
 
 " ========================================
 " Other
