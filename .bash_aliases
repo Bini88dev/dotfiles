@@ -260,7 +260,6 @@ cd ()
 gitpush() {
     git add .
     git commit -s -m "$*"
-    git pull
     git push
 }
 gitupdate() {
@@ -268,14 +267,15 @@ gitupdate() {
     ssh-add ~/.ssh/*.key
     ssh -T git@github.com
 }
-alias gp=gitpush
+alias lazyg=gitpush
 alias gu=gitupdate
 
 ## Git continue...
 alias gs='git status'
+alias gcl='git clone'
 # alias gss='git status -s'
-# alias ga='git add'
-# alias gp='git push'
+alias ga='git add'
+alias gp='git push'
 # alias gpraise='git blame'
 # alias gpo='git push origin'
 # alias gpt='git push --tag'
@@ -284,8 +284,8 @@ alias gs='git status'
 # alias grb='git branch -r'                                                                           # display remote branch
 # alias gplo='git pull origin'
 # alias gb='git branch '
-# alias gc='git commit -s -m'
-# alias gd='git diff'
+alias gc='git commit -s -m'
+alias gd='git diff'
 # alias gco='git checkout '
 # alias gl='git log --pretty=oneline'
 # alias gr='git remote'
