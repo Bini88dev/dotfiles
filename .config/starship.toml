@@ -106,3 +106,18 @@ disabled = false
 disabled = false
 impure_msg = 'devbox'
 format = 'via [$symbol$state](bold blue) '
+
+[lua]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+
+[golang]
+style = 'blue'
+symbol = ' '
+
+[rust]
+style = 'orange'
+symbol = ' '
+
+[package]
+symbol = '󰏗 '
